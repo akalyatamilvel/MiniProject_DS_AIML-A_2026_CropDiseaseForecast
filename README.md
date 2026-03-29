@@ -56,8 +56,9 @@ Farmers in India and other agricultural regions face unpredictable crop disease 
 - The XGBoost classifier achieved classification of crop disease risk into Low / Medium / High categories
 - Visualizations revealed clear correlations between 7-day average humidity > 80% and outbreak occurrence
 - Early warning is possible 5–7 days in advance using available forecast climate data
+- Monsoon months (June–September) consistently showed the highest disease risk across all 4 years
+- Humidity and high_humidity_days were identified as the top 2 most important features by the model
 
-*(Results will be updated as model training is completed)*
 
 ---
 
