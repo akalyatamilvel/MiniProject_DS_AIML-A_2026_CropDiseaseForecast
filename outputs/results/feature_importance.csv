@@ -1,0 +1,8 @@
+feature,importance
+wind_avg,0.2403
+month,0.2166
+rainfall_total,0.1734
+humidity_avg_monthly,0.1578
+temp_avg_monthly,0.1011
+heavy_rain_days,0.0718
+high_humidity_days,0.039
