@@ -22,7 +22,7 @@ Farmers in India and other agricultural regions face unpredictable crop disease 
 
 ---
 
-## Methodology / Workflow
+## Methodology
 
 1. **Problem Identification** — Define the target crop diseases and geography (focus: rice and wheat, Tamil Nadu region)
 2. **Dataset Collection** — Fetch climate data via Open-Meteo API and disease records from ICRISAT
@@ -49,7 +49,7 @@ Farmers in India and other agricultural regions face unpredictable crop disease 
 
 ---
 
-## Results / Findings
+## Results 
 
 - Temperature and relative humidity were found to be the strongest predictors of disease outbreak risk
 - Disease outbreaks showed a strong seasonal pattern, peaking during high-humidity monsoon periods
