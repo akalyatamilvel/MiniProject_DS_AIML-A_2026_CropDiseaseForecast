@@ -1,0 +1,1 @@
+# MiniProject_DS_AIML-A_2026_CropDiseaseForecast
