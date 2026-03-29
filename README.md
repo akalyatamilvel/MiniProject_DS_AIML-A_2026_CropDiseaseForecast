@@ -65,8 +65,8 @@ Farmers in India and other agricultural regions face unpredictable crop disease 
 
 | Name | Role | GitHub |
 |---|---|---|
-| Akalya | Data collection, EDA, Visualization | [@akalya](https://github.com/) |
-| [Teammate Name] | Preprocessing, Model development, Report | [@teammate](https://github.com/) |
+| Akalya Tamilvel Senbakam | Data collection, EDA, Visualization | [@akalyatamilvel](https://github.com/) |
+| Sachitha Ravichandran | Preprocessing, Model development, Report | [@sachitha07](https://github.com/) |
 
 ---
 
@@ -104,7 +104,7 @@ MiniProject/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/YOUR_USERNAME/MiniProject_DS_AIML-A_2026_CropDiseaseForecast.git
+git clone https://github.com/akalyatamilvel/MiniProject_DS_AIML-A_2026_CropDiseaseForecast.git
 ```
 
 2. Install dependencies:
