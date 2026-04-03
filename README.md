@@ -127,4 +127,4 @@ python src/model.py
 
 ---
 
-*Project submitted for DS/AIML Mini Project — 2026*
+*Project submitted for DS Mini Project — 2026*
