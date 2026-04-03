@@ -1,14 +1,7 @@
-# =============================================================
-# File: collect_data.py
-# Purpose: Download real climate data from Open-Meteo API (FREE)
-# Run this file from your project root folder
-# =============================================================
-
 import requests
 import pandas as pd
 import os
 
-# ── Step 1: Define the location and time range ──────────────
 # We are collecting data for Tamil Nadu (Thanjavur - major rice region)
 LATITUDE  = 10.787
 LONGITUDE = 79.138
@@ -20,8 +13,7 @@ print(f"Location : Thanjavur, Tamil Nadu ({LATITUDE}, {LONGITUDE})")
 print(f"Period   : {START_DATE} to {END_DATE}")
 print("-" * 50)
 
-# ── Step 2: Build the API URL ────────────────────────────────
-# Open-Meteo historical weather API - completely FREE, no key needed
+# Open-Meteo historical weather API 
 url = "https://archive-api.open-meteo.com/v1/archive"
 
 params = {
@@ -40,12 +32,11 @@ params = {
     "timezone": "Asia/Kolkata"
 }
 
-# ── Step 3: Make the API request ─────────────────────────────
 print("Connecting to Open-Meteo API...")
 
 try:
     response = requests.get(url, params=params, timeout=30)
-    response.raise_for_status()  # raises error if request failed
+    response.raise_for_status()  
     data = response.json()
     print("Data downloaded successfully!")
 
@@ -61,8 +52,6 @@ except Exception as e:
     print(f"ERROR: {e}")
     exit()
 
-# ── Step 4: Convert to a neat table (DataFrame) ──────────────
-# A DataFrame is like an Excel table in Python
 daily = data["daily"]
 
 df_climate = pd.DataFrame({
@@ -90,13 +79,11 @@ print(f"Columns              : {list(df_climate.columns)}")
 print("\nFirst 5 rows of climate data:")
 print(df_climate.head())
 
-# ── Step 5: Save climate data to raw_data folder ─────────────
 os.makedirs("dataset/raw_data", exist_ok=True)
 climate_path = "dataset/raw_data/climate_data.csv"
 df_climate.to_csv(climate_path, index=False)
 print(f"\nClimate data saved to: {climate_path}")
 
-# ── Step 6: Create disease outbreak dataset ──────────────────
 # This dataset is based on real patterns from agricultural research:
 # Rice Blast and Rice Brown Spot are most common in Tamil Nadu
 # They occur when humidity > 80% and temperature is between 20-30°C
@@ -104,19 +91,17 @@ print(f"\nClimate data saved to: {climate_path}")
 print("\nCreating disease outbreak dataset...")
 
 import numpy as np
-np.random.seed(42)  # makes results reproducible
+np.random.seed(42)  
 
-# Create monthly disease records (2020-2023)
+
 months = pd.date_range(start="2020-01-01", end="2023-12-31", freq="MS")
 
 disease_records = []
 for month in months:
-    # Rice Blast outbreak - peaks June to September (monsoon)
     month_num = month.month
     is_monsoon = 1 if month_num in [6, 7, 8, 9] else 0
     is_postmonsoon = 1 if month_num in [10, 11] else 0
 
-    # Simulate outbreak occurrence based on season
     rice_blast_prob = 0.7 if is_monsoon else (0.3 if is_postmonsoon else 0.1)
     brown_spot_prob = 0.5 if is_monsoon else (0.2 if is_postmonsoon else 0.05)
 
@@ -132,7 +117,6 @@ for month in months:
 
 df_disease = pd.DataFrame(disease_records)
 
-# Add a combined risk label
 def risk_label(row):
     total = row["rice_blast"] + row["brown_spot"]
     if total == 2:
@@ -150,7 +134,6 @@ print(df_disease["risk_level"].value_counts())
 print("\nFirst 5 rows of disease data:")
 print(df_disease.head())
 
-# Save disease data
 disease_path = "dataset/raw_data/disease_records.csv"
 df_disease.to_csv(disease_path, index=False)
 print(f"\nDisease data saved to: {disease_path}")
