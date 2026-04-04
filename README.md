@@ -38,7 +38,7 @@ Farmers in India and other agricultural regions face unpredictable crop disease 
 
 | Tool | Purpose |
 |---|---|
-| Python 3.x | Core programming language |
+| Python | Core programming language |
 | Pandas | Data manipulation and cleaning |
 | NumPy | Numerical computations |
 | Matplotlib & Seaborn | Data visualization |
@@ -68,6 +68,48 @@ Farmers in India and other agricultural regions face unpredictable crop disease 
 |---|---|---|
 | Akalya Tamilvel Senbakam | Data collection, EDA, Visualization | [@akalyatamilvel](https://github.com/) |
 | Sachitha Ravichandran | Preprocessing, Model development, Report | [@sachitha07](https://github.com/) |
+
+---
+
+## Project Workflow
+
+### Step 1 - Data Collection
+Climate data such as temperature, humidity, rainfall, and wind speed were collected using the Open-Meteo API. Historical crop disease records were collected from the ICRISAT open data portal.
+
+### Step 2 - Data Preprocessing
+The collected dataset contained missing values and inconsistent formats. The following preprocessing steps were performed:
+- Handled missing values using mean imputation
+- Removed outliers from temperature and rainfall data
+- Converted date data into monthly aggregates
+- Created new features such as:
+  - high_humidity_days
+  - heavy_rain_days
+  - temperature_range
+- Encoded categorical risk levels (Low, Medium, High)
+
+### Step 3 - Exploratory Data Analysis (EDA)
+EDA was performed to understand patterns and relationships between climate variables and crop disease outbreaks:
+- Distribution of temperature, humidity, and rainfall
+- Seasonal disease outbreak patterns
+- Correlation analysis between climate variables
+- Identification of high-risk months
+
+### Step 4 - Data Visualization
+Various visualizations were created to better understand the data:
+- Monthly disease outbreak bar chart
+- Climate trends line chart
+- Humidity vs disease risk plot
+- Correlation heatmap
+- Feature importance graph
+
+### Step 5 - Model Development
+The XGBoost classifier was used to classify disease risk into Low, Medium, and High categories. The dataset was split into training (80%) and testing (20%) sets.
+
+### Step 6 - Model Evaluation
+The model was evaluated using accuracy score and feature importance analysis. Humidity and rainfall were identified as the most important predictors.
+
+### Step 7 - Result Interpretation
+Based on the model and analysis, we identified the climate conditions that lead to high disease outbreaks. The model can be used as an early warning system for farmers.
 
 ---
 
